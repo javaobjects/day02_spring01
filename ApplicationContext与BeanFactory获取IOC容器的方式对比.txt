@@ -1,0 +1,24 @@
+IOC容器的获取方式：ApplicationContext与BeanFactory
+
+【推荐使用】ApplicationContext获取IOC容器的三种方式：
+  		1. 【推荐使用】ClassPathXmlApplicationContext 从类路径（class字节码所在路径）下加载xml文件
+		2. FileSystemXmlApplicationContext 从文件系统路径下加载xml文件
+		3. XmlWebApplicationContext 在web环境中加载xml文件
+				
+		注意：
+			ApplicationContext方式解析与加载xml时，会完成applicationContext.xml文档的校验，同时所有管理的<bean>都会被实例化，且所以依赖关系都会被注入
+				
+				
+BeanFactory获取IOC容器的两种方式：
+  		1. 【推荐使用】ClassPathResource 从类路径（class字节码所在路径）下加载xml文件
+		2. FileSystemResource 从文件系统路径下加载xml文件
+		
+		注意：
+			BeanFactory方式解析与加载xml时，不会完成applicationContext.xml文档的校验，当第一次调用getBean()方法时，完成需要的<bean>的实例化
+			BeanFactory属于延迟加载（懒加载），即<bean>需要使用才会new，否则一直不会被实例化
+			
+			
+大多数情况下推荐使用ApplicationContext，因为会完成xml文档校验，如果对内存的要求较高，对任何一点内存都斤斤计较，则可以使用BeanFactory。
+			
+			
+	
