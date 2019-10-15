@@ -3,8 +3,6 @@ package spring.test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import spring.UserService;
-
 public class TestApplicationContext {
 
 	public static void main(String[] args){
